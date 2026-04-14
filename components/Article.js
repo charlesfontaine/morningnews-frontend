@@ -2,8 +2,18 @@ import Image from 'next/image';
 import styles from '../styles/Article.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { addBookmark, removeBookmark } from '../reducers/bookmarks.js';
 
 function Article(props) {
+  const dispatch = useDispatch();
+
+  const handleBookmarkClick = () => {
+    if (props.isBookmarked) {
+      dispatch(removeBookmark(props))
+    }
+  }
+
 	return (
 		<div className={styles.articles}>
 			<div className={styles.articleHeader}>
