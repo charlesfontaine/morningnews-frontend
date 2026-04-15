@@ -28,7 +28,7 @@ function Home() {
   });
 
   let topArticleCard;
-  if (bookmarks.some((bookmark) => bookmark.title !== topArticle.title)) {
+  if (bookmarks.some((bookmark) => bookmark.title === topArticle.title)) {
     topArticleCard = <TopArticle {...topArticle} isBookmarked />;
   } else {
     topArticleCard = <TopArticle {...topArticle} isBookmarked={false} />;
