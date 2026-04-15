@@ -15,11 +15,23 @@ function Article(props) {
     }
   };
 
+  let iconStyle = {};
+  if (props.isBookmarked) {
+    iconStyle = { color: "#e9be59" };
+  }
+
   return (
     <div className={styles.articles}>
       <div className={styles.articleHeader}>
         <h3>{props.title}</h3>
-        <FontAwesomeIcon icon={faBookmark} className={styles.bookmarkIcon} />
+        <FontAwesomeIcon
+          icon={faBookmark}
+          className={styles.bookmarkIcon}
+          onClick={() => {
+            handleBookmarkClick();
+          }}
+          style={iconStyle}
+        />
       </div>
       <h4 style={{ textAlign: "right" }}>- {props.author}</h4>
       <div className={styles.divider}></div>
