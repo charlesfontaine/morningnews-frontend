@@ -27,13 +27,20 @@ function Home() {
     return <Article key={i} {...data} isBookmarked={isBookmarked} />;
   });
 
+  let topArticleCard;
+  if (bookmarks.some((bookmark) => bookmark.title !== topArticle.title)) {
+    topArticleCard = <TopArticle {...topArticle} isBookmarked />;
+  } else {
+    topArticleCard = <TopArticle {...topArticle} isBookmarked={false} />;
+  }
+
   return (
     <div>
       <Head>
         <title>Morning News - Home</title>
       </Head>
 
-      <TopArticle {...topArticle} />
+      {topArticleCard}
 
       <div className={styles.articlesContainer}>{articles}</div>
     </div>
