@@ -1,8 +1,8 @@
+import styles from "../styles/Article.module.css";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 import { addBookmark, removeBookmark } from "../reducers/bookmarks.js";
-import styles from "../styles/Article.module.css";
 
 function Article(props) {
   const dispatch = useDispatch();
